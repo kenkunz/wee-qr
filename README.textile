@@ -4,9 +4,7 @@ Wee QR is a really simple QR Code generator on Rack.
 
 h2. Install
 
-Wee QR depends on on the "qrencoder":https://github.com/harrisj/qrencoder gem, which
-depends on "libqrcode":http://fukuchi.org/works/qrencode/index.en.html. Installation
-on OS X (using rvm, bundler) looks something like this:
+Wee QR depends on on the "qrencoder":https://github.com/harrisj/qrencoder gem, which depends on "libqrcode":http://fukuchi.org/works/qrencode/index.en.html. Installation on OS X (using rvm, bundler) looks something like this:
 
 <pre>
 <code>
@@ -20,11 +18,9 @@ $ bundle install
 
 h2. Usage
 
-Run it with your rack server of choice. Go to the app's url, with the content you want
-encoded in the _path_. The response should be QR code png.
+Run it with your rack server of choice. Go to the app's url, with the content you want encoded in the _path_. The response should be QR code png.
 
-For example, I'm running Wee QR at qr.dev, so http://qr.dev/foo returns a QR code that
-encodes "foo".
+For example, I'm running Wee QR at qr.dev, so http://qr.dev/foo returns a QR code that encodes "foo".
 
 h2. TODO
 
