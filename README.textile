@@ -25,5 +25,4 @@ For example, I'm running Wee QR at qr.dev, so http://qr.dev/foo returns a QR cod
 h2. TODO
 
 * add Content-Length header
-* resize QR code pixels
 * improve content streaming?
