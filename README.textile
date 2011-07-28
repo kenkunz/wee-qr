@@ -4,7 +4,7 @@ Wee QR is a really simple QR Code generator on Rack.
 
 h2. Install
 
-Wee QR depends on on the "qrencoder":https://github.com/harrisj/qrencoder gem, which depends on "libqrcode":http://fukuchi.org/works/qrencode/index.en.html. Installation on OS X (using rvm, bundler) looks something like this:
+Wee QR depends on on the "qrencoder":https://github.com/harrisj/qrencoder gem, which depends on "libqrcode":http://fukuchi.org/works/qrencode/index.en.html. Installation on OS X (using brew, bundler) looks something like this:
 
 <pre>
 <code>
