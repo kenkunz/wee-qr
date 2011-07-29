@@ -1,6 +1,6 @@
 require 'qrencoder'
 
-class QRGenerator
+class WeeQR
   DEFAULT_MODULE_SIZE = 5
 
   def call(env)
