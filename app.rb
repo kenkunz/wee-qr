@@ -7,14 +7,11 @@ class WeeQR
     @env = env
 
     if query_string?
-      [ 200, {'Content-Type'=>'image/png'}, self ]
+      data = qr_code_png
+      [ 200, { 'Content-Type' => 'image/png', 'Content-Length' => data.size.to_s }, [ data ] ]
     else
-      [ 404, {'Content-Type'=>'text/plain'}, ['404 Not Found'] ]
+      [ 404, { 'Content-Type' => 'text/plain' }, [ '404 Not Found' ] ]
     end
-  end
-
-  def each
-    yield qr_code_png.to_blob
   end
 
   def path_info
@@ -46,7 +43,7 @@ class WeeQR
   end
 
   def qr_code_png
-    qr_code.png(:pixels_per_module => module_size)
+    qr_code.png(:pixels_per_module => module_size).to_blob
   end
 
 end
