@@ -18,9 +18,9 @@ $ bundle install
 
 h2. Usage
 
-Run it with your rack server of choice. Go to the app's url, with the content you want encoded in the _path_. The response should be QR code png.
+Run it with your rack server of choice. Go to the app's url, with the content you want encoded in the _query string_. The response should be QR code png. You can optionally include a _module size_ as a _path parameter_ (default is 5).
 
-For example, I'm running Wee QR at qr.dev, so http://qr.dev/foo returns a QR code that encodes "foo".
+For example, I'm running Wee QR at qr.dev, so http://qr.dev/foo returns a QR code that encodes "foo", and http://qr.dev/10?bar%20baz returns a larger QR code (10 pixel modules) that encodes "bar baz".
 
 h2. TODO
 
