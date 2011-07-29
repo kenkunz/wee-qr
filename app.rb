@@ -1,4 +1,4 @@
-require 'qrencoder'
+require 'pngqr'
 
 class WeeQR
   DEFAULT_MODULE_SIZE = 5
@@ -38,12 +38,12 @@ class WeeQR
     module_size_param || DEFAULT_MODULE_SIZE
   end
 
-  def qr_code
-    QREncoder.encode(unescaped_query_string)
+  def border_size
+    module_size * 4
   end
 
   def qr_code_png
-    qr_code.png(:pixels_per_module => module_size).to_blob
+    Pngqr.encode unescaped_query_string, :scale => module_size, :border => border_size
   end
 
 end
