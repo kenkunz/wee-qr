@@ -4,23 +4,32 @@ require 'time'
 class WeeQR
   DEFAULT_MODULE_SIZE = 5
 
-  def call(env)
-    @env = env
+  def self.call(env)
+    new(env).response
+  end
 
+  def initialize(env)
+    @env = env
+  end
+
+  def response
     if query_string?
-      data = qr_code_png
-      [ 200, headers(data), [ data ] ]
+      [ 200, headers, self ]
     else
       [ 404, { 'Content-Type' => 'text/plain' }, [ '404 Not Found' ] ]
     end
   end
 
-  def headers(data)
+  def headers
     {
       'Content-Type' => 'image/png',
-      'Content-Length' => data.size.to_s,
+      'Content-Length' => qr_code_png.size.to_s,
       'Date' => Time.now.httpdate
     }
+  end
+
+  def each
+    yield qr_code_png
   end
 
   def path_info
@@ -52,7 +61,7 @@ class WeeQR
   end
 
   def qr_code_png
-    qr_code.png(:pixels_per_module => module_size).to_blob
+    @png ||= qr_code.png(:pixels_per_module => module_size).to_blob
   end
 
 end
