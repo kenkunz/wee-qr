@@ -1,4 +1,5 @@
 require 'qrencoder'
+require 'time'
 
 class WeeQR
   DEFAULT_MODULE_SIZE = 5
@@ -8,10 +9,18 @@ class WeeQR
 
     if query_string?
       data = qr_code_png
-      [ 200, { 'Content-Type' => 'image/png', 'Content-Length' => data.size.to_s }, [ data ] ]
+      [ 200, headers(data), [ data ] ]
     else
       [ 404, { 'Content-Type' => 'text/plain' }, [ '404 Not Found' ] ]
     end
+  end
+
+  def headers(data)
+    {
+      'Content-Type' => 'image/png',
+      'Content-Length' => data.size.to_s,
+      'Date' => Time.now.httpdate
+    }
   end
 
   def path_info
