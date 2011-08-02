@@ -1,4 +1,3 @@
-require 'qrencoder'
 require 'time'
 
 class WeeQR
