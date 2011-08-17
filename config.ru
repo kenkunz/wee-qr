@@ -1,5 +1,6 @@
+require 'rubygems'
 require 'bundler'
-Bundler.require
+Bundler.require(:default)
 
 require File.dirname(__FILE__) + '/app'
 
